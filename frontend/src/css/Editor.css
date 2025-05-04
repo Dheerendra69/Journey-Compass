@@ -1,0 +1,10 @@
+.editor-page{
+    height: 100vh;
+}
+input[type="text"]{
+    height: 10vh;
+}
+
+input[name="body"]{
+    height: 20vh;
+}
