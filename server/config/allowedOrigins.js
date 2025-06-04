@@ -2,7 +2,7 @@
 const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:4200',
-    'https://blogging-website-react.netlify.app',
+    'https://journey-compass.netlify.app',
     'http://localhost:3000'
 
 ];
