@@ -63,7 +63,7 @@ function Auth() {
 
     try {
       const { data } = await axios.post(
-        `https://blogging-website-backend-bzho.onrender.com/api/users${
+        `https://blogging-website-x3hj.onrender.com/api/users${
           isRegister ? "" : "/login"
         }`,
         { user: values }

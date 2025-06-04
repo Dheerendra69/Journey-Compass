@@ -3,7 +3,7 @@ import axios from "axios";
 
 const getAllArticles = async () => {
   const { data } = await axios.get(
-    `https://blogging-website-backend-bzho.onrender.com/api/articles/feed`
+    `https://blogging-website-x3hj.onrender.com/api/articles/feed`
   );
 
   return data;

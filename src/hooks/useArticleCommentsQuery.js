@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const getArticleComments = async (slug) => {
   // console.log("inside getArticleComments");
   const { data } = await axios.get(
-    `https://blogging-website-backend-bzho.onrender.com/api/articles/${slug}/comments`
+    `https://blogging-website-x3hj.onrender.com/api/articles/${slug}/comments`
   );
 
   // console.log("getArticleComments: ", { data });

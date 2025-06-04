@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const creteArticle = async (values) => {
   const { data } = await axios.post(
-    `https://blogging-website-backend-bzho.onrender.com/api/articles`,
+    `https://blogging-website-x3hj.onrender.com/api/articles`,
     {
       article: { ...values.values },
     }

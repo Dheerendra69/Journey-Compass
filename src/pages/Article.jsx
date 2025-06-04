@@ -11,7 +11,7 @@ function Article() {
 
   const getArticleBySlug = async (slug) => {
     const { data } = await axios.get(
-      `https://blogging-website-backend-bzho.onrender.com/api/articles/${slug}`
+      `https://blogging-website-x3hj.onrender.com/api/articles/${slug}`
     );
 
     setArticle(data.article);

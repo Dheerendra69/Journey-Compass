@@ -37,7 +37,7 @@
           }
         ],
         "url": {
-          "raw": "https://blogging-website-backend-bzho.onrender.com/api/user",
+          "raw": "https://blogging-website-x3hj.onrender.com/api/user",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3001",
@@ -77,7 +77,7 @@
           }
         ],
         "url": {
-          "raw": "https://blogging-website-backend-bzho.onrender.com/api/user",
+          "raw": "https://blogging-website-x3hj.onrender.com/api/user",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3001",
@@ -117,7 +117,7 @@
           }
         },
         "url": {
-          "raw": "https://blogging-website-backend-bzho.onrender.com/api/users",
+          "raw": "https://blogging-website-x3hj.onrender.com/api/users",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3001",
@@ -157,7 +157,7 @@
           }
         },
         "url": {
-          "raw": "https://blogging-website-backend-bzho.onrender.com/api/users",
+          "raw": "https://blogging-website-x3hj.onrender.com/api/users",
           "protocol": "https",
           "host": ["blogging-backend-k6f2", "onrender", "com"],
           "path": ["api", "users"]
@@ -196,7 +196,7 @@
           }
         },
         "url": {
-          "raw": "https://blogging-website-backend-bzho.onrender.com/api/users",
+          "raw": "https://blogging-website-x3hj.onrender.com/api/users",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3001",
