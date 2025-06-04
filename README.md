@@ -35,7 +35,7 @@ A full-stack blogging platform built using the MERN stack (MongoDB, Express.js, 
 
 **Documentation** - https://obvious-cosmos-bed.notion.site/API-Documentation-a346a55b65af41d69d3ab229dbcd0173
 
-**Site Live At** - https://blogging-website-react.netlify.app/
+**Site Live At** - [https://blogging-website-react.netlify.app/](https://journey-compass.netlify.app/)
 
 ## PostMan File - 
 userRoutes.postman_collection.json file contains postman setup for verifying routes
