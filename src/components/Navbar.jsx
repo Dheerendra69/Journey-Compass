@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="navbar navbar-light">
       <div className="container">
         <NavLink activeClassName="active" className="navbar-brand" to="/" end>
-          Yatra Vrittant
+          Journey-Compass
         </NavLink>
         <ul className="nav navbar-nav pull-xs-right">
           <li className="nav-item">
