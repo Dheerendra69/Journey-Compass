@@ -1,4 +1,4 @@
-# Yattra Vrittant - MERN Blogging Website 📝
+# Journey Compass - MERN Blogging Website 📝
 
 A full-stack blogging platform built using the MERN stack (MongoDB, Express.js, React, Node.js). Users can sign up and log in using JWT-based authentication, create articles, and comment on posts.
 
