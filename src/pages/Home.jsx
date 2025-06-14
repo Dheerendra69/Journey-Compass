@@ -4,7 +4,6 @@ import { ArticleList, PopularTags } from "../components";
 import { useArticlesQuery, useAuth } from "../hooks";
 
 import "../css/Home.css";
-import Footer from "./Footer";
 
 const initialFilters = { tag: "", offset: null, feed: false };
 

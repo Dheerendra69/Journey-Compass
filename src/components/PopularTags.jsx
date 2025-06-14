@@ -1,27 +1,22 @@
-import React from 'react'
-import { useTagsQuery } from '../hooks'
+import React from "react";
+import { useTagsQuery } from "../hooks";
 
 function PopularTags() {
+  const { isTagsLoading, tags, tagsError } = useTagsQuery();
 
-    const  {
-        isTagsLoading,
-        tags,
-        tagsError,
-      } = useTagsQuery();
-
-    function content(){
-        return tags?.tags?.map((tag) => (
-            <span className='tag-pill tag-default'>
-                {tag}
-            </span>
-        ))
-    }
+  function content() {
+    return tags?.tags?.map((tag) => (
+      <span className="tag-pill tag-default" key={tag}>
+        {tag}
+      </span>
+    ));
+  }
   return (
-    <div className='sidebar'>
-        <p>Popular Tags</p>
-        <div className='tag-list'>{content()}</div>
+    <div className="sidebar">
+      <p>Popular Tags</p>
+      <div className="tag-list">{content()}</div>
     </div>
-  )
+  );
 }
 
-export default PopularTags
+export default PopularTags;

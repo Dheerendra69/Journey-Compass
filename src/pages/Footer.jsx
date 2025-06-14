@@ -2,7 +2,7 @@ import React from "react";
 import "../css/Footer.css";
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer_container">
       <div className="container">
         <p className="text">© 2024 Yatra Vrittant. All rights reserved.</p>
       </div>

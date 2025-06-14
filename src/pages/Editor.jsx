@@ -7,7 +7,6 @@ import { FormErrors, TagsInput } from "../components";
 // import { useArticleQuery } from "../hooks";
 import useCreateArticle from "../hooks/useCreateArticle";
 import "../css/Editor.css";
-import Footer from "./Footer";
 
 function Editor() {
   const navigate = useNavigate();
@@ -103,7 +102,6 @@ function Editor() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

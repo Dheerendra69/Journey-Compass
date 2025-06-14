@@ -1,10 +1,68 @@
-.editor-page{
-    height: 100vh;
-}
-input[type="text"]{
-    height: 10vh;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-input[name="body"]{
-    height: 20vh;
+.editor-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem 0;
+  background-color: #f8f9fa;
+}
+
+.container.page {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control-lg {
+  font-size: 1.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.form-control {
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px;
+}
+
+button[type="submit"] {
+  display: block;
+  margin-left: auto;
+  padding: 0.6rem 1.5rem;
+}
+
+.pull-xs-right {
+  float: right;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
 }

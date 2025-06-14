@@ -1,13 +1,15 @@
-// import React from "react";
+import React from "react";
 import "../css/About.css";
-// import owner from "../assets/front image.avif";
-import Footer from "./Footer";
-import profile_image from "../assets/about.avif";
+import owner from "../assets/front image.avif";
 
 function About() {
   return (
     <div className="about-container">
-      <img src={profile_image} alt="Loading..." className="about-image" />
+      <img
+        src="https://img.freepik.com/premium-vector/color-illustration-tourist-traveling-with-suitcase-world-tourism-day-oneline-drawing_718518-5423.jpg"
+        alt="Loading..."
+        className="about-image"
+      />
       <div className="about-content">
         <h1>About Me</h1>
         <p>
@@ -29,9 +31,8 @@ function About() {
           wanderlust and help you discover the thrill of exploring. Let’s
           journey together to make life an amazing adventure!
         </p>
-        <a href="https://www.youtube.com/@uplakshyakashyap1486">Youtube</a>
+        <a href="#">Youtube</a>
       </div>
-      <Footer />
     </div>
   );
 }

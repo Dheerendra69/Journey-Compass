@@ -8,7 +8,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { AuthRoute, GuestRoute, Navbar } from "./components";
-import { Article, Auth, Editor, Home, Settings } from "./pages";
+import { Article, Auth, Editor, Footer, Home, Settings } from "./pages";
 import axios from "axios";
 import About from "./pages/About";
 
@@ -22,6 +22,9 @@ function App() {
     }
 
     const parsedJwt = JSON.parse(atob(jwt));
+    if (Date.now() > parsedJwt.expiry) {
+      console.log("Token expired");
+    }
     axios.defaults.headers.Authorization = `Token ${parsedJwt.token}`;
   }
   useEffect(() => {
@@ -29,7 +32,7 @@ function App() {
   }, []);
   return (
     <Router>
-      <div>
+      <div className="App_Container">
         <header>
           <Navbar />
         </header>
@@ -40,11 +43,9 @@ function App() {
               <Route path="/register" element={<Auth key="register" />} />
             </Route>
 
-            {/* <GuestRoute path='/register' element={<h1>Register </h1>} /> */}
             <Route path="/login" element={<GuestRoute />}>
               <Route path="/login" element={<Auth key="login" />} />
             </Route>
-            {/* <Route path='/login' element={<h1>Login </h1>} /> */}
             <Route path="/settings" element={<AuthRoute />}>
               <Route path="/settings" element={<Settings />} />
             </Route>
@@ -62,6 +63,7 @@ function App() {
             </Route>
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );

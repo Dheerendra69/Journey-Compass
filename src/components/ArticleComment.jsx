@@ -1,9 +1,7 @@
-import React from "react";
 import { useAuth } from "../hooks";
 import { Link } from "react-router-dom";
 
 function ArticleComment({ comment }) {
-
   const { author, body, createdAt, id } = comment;
   const { authUser } = useAuth();
 
@@ -18,11 +16,9 @@ function ArticleComment({ comment }) {
       {id && (
         <div className="card-footer">
           <Link>{author.username}</Link>&nbsp;
-
-            <span className="date-posted">
-                {new Date(createdAt).toDateString()}
-            </span>
-
+          <span className="date-posted">
+            {new Date(createdAt).toDateString()}
+          </span>
           &nbsp;
           {canDelete && <button>Delete</button>}
         </div>

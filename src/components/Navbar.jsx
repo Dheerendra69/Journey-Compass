@@ -8,17 +8,12 @@ function Navbar() {
   return (
     <nav className="navbar navbar-light">
       <div className="container">
-        <NavLink activeClassName="active" className="navbar-brand" to="/" end>
-          Journey-Compass
+        <NavLink className="navbar-brand" to="/" end>
+          Yatra Vrittant
         </NavLink>
         <ul className="nav navbar-nav pull-xs-right">
           <li className="nav-item">
-            <NavLink
-              activeClassName="active"
-              className="navbar-brand"
-              to="/"
-              end
-            >
+            <NavLink className="navbar-brand" to="/" end>
               Home
             </NavLink>
           </li>
@@ -26,38 +21,25 @@ function Navbar() {
           {isAuth && (
             <>
               <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="navbar-brand"
-                  to="/editor"
-                >
+                <NavLink className="navbar-brand" to="/editor">
                   {/* <i className="ion-compose"/> */}
                   &nbsp; New Post
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="navbar-brand"
-                  to="/settings"
-                >
+                <NavLink className="navbar-brand" to="/settings">
                   {/* <i className="ion-compose"/> */}
                   &nbsp; Settings
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="navbar-brand"
-                  to="/about"
-                >
+                <NavLink className="navbar-brand" to="/about">
                   {/* <i className="ion-compose"/> */}
                   &nbsp; About
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
-                  activeClassName="active"
                   className="navbar-brand"
                   to={`/@${authUser?.username}`}
                 >
@@ -71,21 +53,13 @@ function Navbar() {
           {!isAuth && (
             <>
               <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="navbar-brand"
-                  to="/register"
-                >
+                <NavLink className="navbar-brand" to="/register">
                   {/* <i className="ion-compose"/> */}
                   Sign up
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="navbar-brand"
-                  to="/login"
-                >
+                <NavLink className="navbar-brand" to="/login">
                   {/* <i className="ion-compose"/> */}
                   Sign in
                 </NavLink>

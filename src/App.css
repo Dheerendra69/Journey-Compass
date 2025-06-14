@@ -1,8 +1,16 @@
 #root {
   max-width: 1280px;
   margin: 0 12%;
-  background-color: #C6E7FF;
-  /* padding: 2rem; */
-  /* text-align: center; */
+  background-color: #c6e7ff;
 }
-
+.App_Container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

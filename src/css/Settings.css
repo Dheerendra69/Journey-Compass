@@ -1,3 +1,42 @@
-.settings-page{
-    height: 100vh;
+.settings-page {
+  padding: 40px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* take up most of the viewport */
+  background-color: #f8f9fa; /* light gray background */
+  padding: 2rem;
+  flex: 1;
+}
+
+.settings-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.settings-card h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.settings-card .form-group {
+  margin-bottom: 1rem;
+}
+
+.settings-card .btn-primary {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.settings-card hr {
+  margin: 2rem 0;
+}
+
+.settings-card .btn-outline-danger {
+  width: 100%;
 }

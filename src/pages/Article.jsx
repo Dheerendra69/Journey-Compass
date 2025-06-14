@@ -4,7 +4,6 @@ import { useArticleQuery } from "../hooks";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../css/Article.css";
-import Footer from "./Footer";
 function Article() {
   const [article, setArticle] = useState([]);
   const { slug } = useParams();
@@ -52,7 +51,6 @@ function Article() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

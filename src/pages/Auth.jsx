@@ -4,16 +4,6 @@ import { Link, useMatch, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../hooks";
 import "../css/Signup.css";
-import Footer from "./Footer";
-// import Email from "emailjs-com";
-
-// const emailToOwner =
-//   "A new user has signed up on your website. Please check the user details and ensure their account is activated. Welcome them aboard!";
-
-// const signupEmailToUser =
-//   "Welcome to our website! We're excited to have you on board. Explore the features and start enjoying all the benefits. Happy browsing!";
-// const loginEmailToUser =
-//   "Hi, someone just signed up using your referral link or account.";
 
 const validatePassword = (password) => {
   const errors = [];
@@ -35,19 +25,6 @@ const validatePassword = (password) => {
   return errors.length > 0 ? errors : null;
 };
 
-// const sendEmail = (subject, message, recipientEmail) => {
-//   Email.send({
-//     Host: "smtp.elasticemail.com",
-//     Username: "dheerendrapratapsingh1509@gmail.com",
-//     Password: "ECF23215F819034DB816FBC02BB5CCC245A9",
-//     To: recipientEmail,
-//     From: "dheerendrapratapsingh1509@gmail.com",
-//     Subject: subject,
-//     Body: message,
-//     UserID: "_QDbh7gF0wFzbZ1-4",
-//   }).then((message) => alert(message));
-// };
-
 function Auth() {
   const isRegister = useMatch("/register");
   const navigate = useNavigate();
@@ -68,25 +45,6 @@ function Auth() {
         }`,
         { user: values }
       );
-
-      // if (isRegister) {
-      //   sendEmail(
-      //     "New User Signed Up",
-      //     emailToOwner,
-      //     "uplakshyakumar872@gmail.com"
-      //   );
-      //   sendEmail(
-      //     "Welcome On Board",
-      //     signupEmailToUser,
-      //     "uplakshyakumar872@gmail.com"
-      //   );
-      // } else {
-      //   sendEmail(
-      //     "New Sign-in Detected",
-      //     loginEmailToUser,
-      //     "uplakshyakumar872@gmail.com"
-      //   );
-      // }
 
       login(data.user);
       navigate("/");
@@ -155,7 +113,6 @@ function Auth() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

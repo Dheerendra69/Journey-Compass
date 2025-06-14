@@ -8,7 +8,7 @@ function ArticleList() {
   const { articles } = useArticlesQuery();
 
   if (isEmpty(articles))
-    return <p className="article-preview">No articles are here... yet.</p>;
+    return <p className="article-preview">Login to see the articles...</p>;
 
   return (
     <div className="ArticleList">
