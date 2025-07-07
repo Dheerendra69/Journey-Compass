@@ -32,12 +32,12 @@ function Auth() {
   const loginInitialValues = { email: "", password: "" };
 
   const onSubmit = async (values, actions) => {
-    const passwordErrors = validatePassword(values.password);
-    if (passwordErrors) {
-      alert(passwordErrors.join(" "));
-      return;
-    }
-
+    // const passwordErrors = validatePassword(values.password);
+    // if (passwordErrors) {
+    //   alert(passwordErrors.join(" "));
+    //   return;
+    // }
+    // commented the validation part
     try {
       const { data } = await axios.post(
         `https://blogging-website-x3hj.onrender.com/api/users${
