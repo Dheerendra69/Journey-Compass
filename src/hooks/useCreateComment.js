@@ -9,8 +9,6 @@ const createCommentApi = async (values) => {
     { ...values.values }
   );
 
-  console.log("createCommentApi", { data });
-
   return data;
 };
 

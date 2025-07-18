@@ -4,7 +4,6 @@ const verifyJWTOptional = (req, res, next) => {
 
     const authHeader = req.headers.authorization || req.headers.Authorization;
 
-    console.log('authHeader',{authHeader})
 
     if(!authHeader?.startsWith('Token ') || !authHeader.split(' ')[1].length ){
         req.loggedin = false;

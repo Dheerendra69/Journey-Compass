@@ -22,7 +22,6 @@ const addCommentsToArticle = async (req, res) => {
       message: "Article Not Found",
     });
   }
-console.log('req.body',req.body)
   const { body } = req.body.comment;
 
   const newComment = await Comment.create({
@@ -41,40 +40,41 @@ console.log('req.body',req.body)
 };
 
 const getCommentsFromArticle = async (req, res) => {
+  const { slug } = req.params;
 
-  const {slug}  = req.params;
+  const article = await Article.findOne({ slug }).exec();
 
-  const article = await Article.findOne({slug}).exec();
-
-  if(!article){
+  if (!article) {
     return res.status(401).json({
       message: "Article Not Found",
     });
-  };
+  }
 
   const loggedin = req.loggedin;
 
-  if(loggedin){
+  if (loggedin) {
     const loginUser = await User.findById(req.userId).exec();
 
     return res.status(200).json({
-      comments: await Promise.all(article.comments.map(async (commentId) => {
-        const commentObj = await Comment.findById(commentId).exec();
-        return await commentObj.toCommentResponse(loginUser);
-      })),
+      comments: await Promise.all(
+        article.comments.map(async (commentId) => {
+          const commentObj = await Comment.findById(commentId).exec();
+          return await commentObj.toCommentResponse(loginUser);
+        })
+      ),
     });
-  }else{
-
+  } else {
     return res.status(200).json({
-      comments: await Promise.all(article.comments.map(async (commentId) => {
-        const commentObj = await Comment.findById(commentId).exec();
+      comments: await Promise.all(
+        article.comments.map(async (commentId) => {
+          const commentObj = await Comment.findById(commentId).exec();
 
-        const temp  = commentObj.toCommentResponse(false)
-        return temp;
-      })),
+          const temp = commentObj.toCommentResponse(false);
+          return temp;
+        })
+      ),
     });
   }
-  
 };
 
 const deleteComment = async (req, res) => {
@@ -99,12 +99,8 @@ const deleteComment = async (req, res) => {
 
   const comment = await Comment.findById(id).exec();
 
-  console.log('comment',comment)
   if (comment.author.toString() === commentor._id.toString()) {
-    //go to article and remove the comment from that array
-
     await article.removeComment(comment._id);
-    //go to comments doc and del particlar comment
 
     await Comment.deleteOne({ _id: comment._id });
 

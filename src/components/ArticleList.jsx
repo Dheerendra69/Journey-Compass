@@ -1,5 +1,5 @@
 import React from "react";
-import { isEmpty, isNil } from "lodash-es";
+import { isEmpty } from "lodash-es";
 import { useArticlesQuery } from "../hooks";
 import ArticlePreview from "./ArticlePreview";
 import "../css/ArticleList.css";
@@ -7,13 +7,20 @@ import "../css/ArticleList.css";
 function ArticleList() {
   const { articles } = useArticlesQuery();
 
-  if (isEmpty(articles))
-    return <p className="article-preview">Login to see the articles...</p>;
+  if (isEmpty(articles)) {
+    return (
+      <div className="text-center py-4 text-muted">
+        <p>Login to see the articles...</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="ArticleList">
+    <div className="row gy-4">
       {articles.map((article) => (
-        <ArticlePreview key={article.slug} article={article} />
+        <div key={article.slug} className="col-12">
+          <ArticlePreview article={article} />
+        </div>
       ))}
     </div>
   );

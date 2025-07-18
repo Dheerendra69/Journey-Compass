@@ -8,19 +8,26 @@ function ArticleComment({ comment }) {
   const canDelete = author?.username === authUser?.username;
 
   return (
-    <div className="card">
-      <div className="card-block">
-        <p className="card-text">{body} </p>
+    <div className="card mb-3 shadow-sm">
+      <div className="card-body">
+        <p className="card-text">{body}</p>
       </div>
 
       {id && (
-        <div className="card-footer">
-          <Link>{author.username}</Link>&nbsp;
-          <span className="date-posted">
-            {new Date(createdAt).toDateString()}
-          </span>
-          &nbsp;
-          {canDelete && <button>Delete</button>}
+        <div className="card-footer d-flex justify-content-between align-items-center flex-wrap">
+          <div className="d-flex align-items-center flex-wrap">
+            <Link to={`/profile/${author.username}`} className="text-decoration-none me-2 fw-medium">
+              @{author.username}
+            </Link>
+            <span className="text-muted small">
+              {new Date(createdAt).toDateString()}
+            </span>
+          </div>
+          {canDelete && (
+            <button className="btn btn-sm btn-outline-danger mt-2 mt-md-0">
+              Delete
+            </button>
+          )}
         </div>
       )}
     </div>

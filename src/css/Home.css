@@ -1,4 +1,53 @@
-.container .page {
+.home-page {
+  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.container.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container.page .row {
+  flex: 1;
+  display: flex;
+}
+
+.col-md-9,
+.col-md-3 {
+  display: flex;
+  flex-direction: column;
+}
+.hero-section {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.typing-responsive {
+  font-size: 2rem;
+}
+
+.lead-responsive {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 576px) {
+  .typing-responsive {
+    font-size: 2.5rem;
+  }
+
+  .lead-responsive {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .typing-responsive {
+    font-size: 3rem;
+  }
+
+  .lead-responsive {
+    font-size: 1.5rem;
+  }
 }

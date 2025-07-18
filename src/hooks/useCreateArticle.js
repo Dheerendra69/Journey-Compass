@@ -11,8 +11,6 @@ const creteArticle = async (values) => {
     }
   );
 
-  console.log("createArticleresult", { data });
-
   return data;
 };
 

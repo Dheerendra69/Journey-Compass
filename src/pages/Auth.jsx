@@ -3,24 +3,23 @@ import { Formik, Form, Field } from "formik";
 import { Link, useMatch, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../hooks";
-import "../css/Signup.css";
 
 const validatePassword = (password) => {
   const errors = [];
   if (password.length < 6 || password.length > 12) {
-    errors.push("Password must be between 6 and 12 characters.\n");
+    errors.push("Password must be between 6 and 12 characters.");
   }
   if (!/[A-Z]/.test(password)) {
-    errors.push("Password must include at least one uppercase letter.\n");
+    errors.push("Password must include at least one uppercase letter.");
   }
   if (!/[a-z]/.test(password)) {
-    errors.push("Password must include at least one lowercase letter.\n");
+    errors.push("Password must include at least one lowercase letter.");
   }
   if (!/[0-9]/.test(password)) {
-    errors.push("Password must include at least one digit.\n");
+    errors.push("Password must include at least one digit.");
   }
-  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-    errors.push("Password must include at least one special character.\n");
+  if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
+    errors.push("Password must include at least one special character.");
   }
   return errors.length > 0 ? errors : null;
 };
@@ -32,12 +31,6 @@ function Auth() {
   const loginInitialValues = { email: "", password: "" };
 
   const onSubmit = async (values, actions) => {
-    // const passwordErrors = validatePassword(values.password);
-    // if (passwordErrors) {
-    //   alert(passwordErrors.join(" "));
-    //   return;
-    // }
-    // commented the validation part
     try {
       const { data } = await axios.post(
         `https://blogging-website-x3hj.onrender.com/api/users${
@@ -45,7 +38,6 @@ function Auth() {
         }`,
         { user: values }
       );
-
       login(data.user);
       navigate("/");
     } catch (error) {
@@ -54,63 +46,63 @@ function Auth() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="container page">
-        <div className="row">
-          <div className="col-md-6 offset-md-3 col-xs-12">
-            <h1 className="text-xs-center">Sign {isRegister ? "up" : "in"}</h1>
-            <p className="text-xs-center">
-              <Link to={isRegister ? "/login" : "/register"}>
-                {isRegister ? "Have" : "Need"} an account?
-              </Link>
-            </p>
+    <div className="container d-flex align-items-center justify-content-center min-vh-100">
+      <div className="w-100" style={{ maxWidth: "450px" }}>
+        <div className="card shadow p-4 p-md-5">
+          <h1 className="text-center mb-4 fw-bold">
+            Sign {isRegister ? "up" : "in"}
+          </h1>
 
-            <Formik
-              onSubmit={onSubmit}
-              initialValues={
-                isRegister
-                  ? { ...loginInitialValues, username: "" }
-                  : loginInitialValues
-              }
-            >
-              {() => (
-                <Form>
-                  {isRegister && (
-                    <fieldset className="form-group">
-                      <Field
-                        type="text"
-                        name="username"
-                        placeholder="Your Name"
-                        className="form-control form-control-lg"
-                      />
-                    </fieldset>
-                  )}
-                  <fieldset className="form-group">
+          <p className="text-center mb-4">
+            <Link to={isRegister ? "/login" : "/register"}>
+              {isRegister ? "Have" : "Need"} an account?
+            </Link>
+          </p>
+
+          <Formik
+            onSubmit={onSubmit}
+            initialValues={
+              isRegister
+                ? { ...loginInitialValues, username: "" }
+                : loginInitialValues
+            }
+          >
+            {() => (
+              <Form className="d-flex flex-column gap-3">
+                {isRegister && (
+                  <div>
                     <Field
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      className="form-control form-control-lg"
+                      type="text"
+                      name="username"
+                      placeholder="Your Name"
+                      className="form-control"
                     />
-                  </fieldset>
-                  <fieldset className="form-group">
-                    <Field
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      className="form-control form-control-lg"
-                    />
-                  </fieldset>
-                  <button
-                    type="submit"
-                    className="btn btn-lg btn-primary pull-xs-right"
-                  >
+                  </div>
+                )}
+                <div>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="form-control"
+                  />
+                </div>
+                <div>
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className="form-control"
+                  />
+                </div>
+                <div>
+                  <button type="submit" className="btn btn-primary w-100">
                     Sign {isRegister ? "up" : "in"}
                   </button>
-                </Form>
-              )}
-            </Formik>
-          </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>

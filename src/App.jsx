@@ -11,6 +11,8 @@ import { AuthRoute, GuestRoute, Navbar } from "./components";
 import { Article, Auth, Editor, Footer, Home, Settings } from "./pages";
 import axios from "axios";
 import About from "./pages/About";
+import LandingPage from "./pages/LandingPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   function setAuthorizationToken() {
@@ -38,7 +40,8 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/blogs" element={<Home />} />
             <Route path="/register" element={<GuestRoute />}>
               <Route path="/register" element={<Auth key="register" />} />
             </Route>
@@ -54,9 +57,11 @@ function App() {
             </Route>
             <Route path="/editor/:slug" element={<h1>Editor </h1>} />
             <Route path="/article/:slug" element={<Article />} />
-            <Route path="/profile/:username" element={<h1>Profile </h1>} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile/:username" element={<ProfilePage />} />
+
             <Route path="/@:username" element={<AuthRoute />}>
-              <Route path="/@:username" element={<h1>Profile </h1>} />
+              <Route index element={<ProfilePage />} />
             </Route>
             <Route path="/about" element={<About />}>
               <Route path="/about" element={<About />} />

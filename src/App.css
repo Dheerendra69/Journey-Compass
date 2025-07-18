@@ -1,16 +1,21 @@
 #root {
-  max-width: 1280px;
-  margin: 0 12%;
-  background-color: #c6e7ff;
-}
-.App_Container {
+  margin-left: 5%;
+  width: 90%;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-main {
+
+.App_Container {
   flex: 1;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }

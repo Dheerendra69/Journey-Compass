@@ -1,66 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../hooks";
 import { NavLink } from "react-router-dom";
+import styles from "../css/Navbar.module.css";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const { isAuth, authUser } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <nav className="navbar navbar-light">
-      <div className="container">
-        <NavLink className="navbar-brand" to="/" end>
+    <motion.nav
+      className={styles.navbar}
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className={styles.container}>
+        <NavLink className={styles.brand} to="/" end>
           Journey-Compass
         </NavLink>
-        <ul className="nav navbar-nav pull-xs-right">
-          <li className="nav-item">
-            <NavLink className="navbar-brand" to="/" end>
+
+        <button className={styles.menuToggle} onClick={toggleMenu}>
+          ☰
+        </button>
+
+        <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
+          <li>
+            <NavLink className={styles.link} to="/" end>
               Home
             </NavLink>
           </li>
+          <li>
+            <NavLink className={styles.link} to="/blogs" end>
+              Blogs
+            </NavLink>
+          </li>
 
-          {isAuth && (
+          {isAuth ? (
             <>
-              <li className="nav-item">
-                <NavLink className="navbar-brand" to="/editor">
-                  {/* <i className="ion-compose"/> */}
-                  &nbsp; New Post
+              <li>
+                <NavLink className={styles.link} to="/editor">
+                  New Post
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="navbar-brand" to="/settings">
-                  {/* <i className="ion-compose"/> */}
-                  &nbsp; Settings
+              <li>
+                <NavLink className={styles.link} to="/settings">
+                  Settings
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="navbar-brand" to="/about">
-                  {/* <i className="ion-compose"/> */}
-                  &nbsp; About
+              <li>
+                <NavLink className={styles.link} to="/about">
+                  About
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  className="navbar-brand"
-                  to={`/@${authUser?.username}`}
-                >
-                  {/* image */}
+              <li>
+                <NavLink className={styles.link} to={`/@${authUser?.username}`}>
                   Hi {authUser?.username}
                 </NavLink>
               </li>
             </>
-          )}
-
-          {!isAuth && (
+          ) : (
             <>
-              <li className="nav-item">
-                <NavLink className="navbar-brand" to="/register">
-                  {/* <i className="ion-compose"/> */}
+              <li>
+                <NavLink className={styles.link} to="/register">
                   Sign up
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="navbar-brand" to="/login">
-                  {/* <i className="ion-compose"/> */}
+              <li>
+                <NavLink className={styles.link} to="/login">
                   Sign in
                 </NavLink>
               </li>
@@ -68,7 +77,7 @@ function Navbar() {
           )}
         </ul>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

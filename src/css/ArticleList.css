@@ -1,0 +1,77 @@
+.article-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.article-card-body {
+  padding: 1.5rem;
+}
+
+.article-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0ea5e9;
+}
+
+.article-author-name {
+  font-weight: 600;
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+.article-author-name:hover {
+  text-decoration: underline;
+}
+
+.article-date {
+  font-size: 0.85rem;
+  color: #006A71;
+}
+
+.article-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.article-body {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.article-tag {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  font-weight: 500;
+}

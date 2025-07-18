@@ -1,0 +1,48 @@
+body {
+  scroll-behavior: smooth;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.blockquote-footer {
+  position: relative;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #facc15; /* optional blinking cursor */
+  animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
+  font-family: monospace;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}

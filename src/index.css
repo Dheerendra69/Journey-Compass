@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #608bc1;
+  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+
 }
 html,
 body {
