@@ -6,7 +6,6 @@ function About() {
     <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
       <div className="container my-5">
         <div className="row align-items-center">
-          {/* Image Section */}
           <div className="col-12 col-md-6 mb-4 mb-md-0 d-flex justify-content-center align-items-center">
             <img
               src={AboutImage}
@@ -21,7 +20,6 @@ function About() {
             />
           </div>
 
-          {/* Content Section */}
           <div className="col-12 col-md-6 text-white">
             <div className="about-content px-2 px-md-4">
               <h1 className="mb-4">About Me</h1>

@@ -9,7 +9,6 @@ function ArticlePreview({ article }) {
   return (
     <div className="article-card">
       <div className="article-card-body">
-        {/* Author Info */}
         <div className="d-flex align-items-center mb-3">
           <Link to={`/profile/${author?.username}`} className="me-3">
             <img
@@ -31,7 +30,6 @@ function ArticlePreview({ article }) {
           </div>
         </div>
 
-        {/* Article Content */}
         <Link to={`/article/${slug}`} className="text-decoration-none">
           <h5 className="article-title">{title}</h5>
           <p className="article-body">
@@ -40,7 +38,6 @@ function ArticlePreview({ article }) {
           <span className="read-more">Read more →</span>
         </Link>
 
-        {/* Tags */}
         <div className="article-tags mt-3">
           {tagList.map((tag) => (
             <span key={tag} className="article-tag">

@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/LandingPage.css";
 import HeroImage from "/hero-image.gif";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    alert("Thankyou for subscribing to us");
+    setEmail("");
+    navigate("/");
+  };
   return (
     <div>
-      {/* Hero Section */}
       <section className="bg-dark text-white text-center py-5">
         <motion.div
           className="container"
@@ -39,7 +47,7 @@ export default function LandingPage() {
           </motion.p>
 
           <motion.a
-            href="/blogs"
+            href="/register"
             className="btn btn-primary btn-lg mt-3"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -50,7 +58,6 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      {/* About Section */}
       <section className="py-5 bg-white">
         <div className="container" data-aos="fade-right">
           <div className="row align-items-center">
@@ -74,7 +81,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-5 bg-light">
         <div className="container">
           <h2 className="text-center mb-5" data-aos="fade-down">
@@ -119,7 +125,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Recent Blogs Preview */}
       <section className="bg-light py-5">
         <div className="container">
           <h2 className="text-center mb-4" data-aos="zoom-in">
@@ -135,10 +140,7 @@ export default function LandingPage() {
                       Explore how AI is transforming the world.
                     </p>
                   </div>
-                  <a
-                    href="/blog/ai-future"
-                    className="btn btn-outline-primary mt-auto"
-                  >
+                  <a href="/blogs" className="btn btn-outline-primary mt-auto">
                     Read More
                   </a>
                 </div>
@@ -158,10 +160,7 @@ export default function LandingPage() {
                       Learn tips to improve your workflow.
                     </p>
                   </div>
-                  <a
-                    href="/blog/productivity"
-                    className="btn btn-outline-primary mt-auto"
-                  >
+                  <a href="/blogs" className="btn btn-outline-primary mt-auto">
                     Read More
                   </a>
                 </div>
@@ -181,10 +180,7 @@ export default function LandingPage() {
                       Discover beautiful places around the globe.
                     </p>
                   </div>
-                  <a
-                    href="/blog/travel"
-                    className="btn btn-outline-primary mt-auto"
-                  >
+                  <a href="/blogs" className="btn btn-outline-primary mt-auto">
                     Read More
                   </a>
                 </div>
@@ -194,7 +190,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="py-5 bg-white">
         <div className="container">
           <h2 className="text-center mb-4" data-aos="fade-up">
@@ -242,23 +237,30 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
       <section className="py-5 bg-light">
         <div className="container text-center" data-aos="fade-up">
           <h2 className="mb-3">Stay Updated!</h2>
           <p>
             Subscribe to get the latest blogs, updates, and exclusive content.
           </p>
-          <form className="row gx-2 gy-2 justify-content-center mt-3">
+          <form
+            className="row gx-2 gy-2 justify-content-center mt-3"
+            onSubmit={handleSubscribe}
+          >
             <div className="col-12 col-md-6">
               <input
                 type="email"
                 className="form-control"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="col-12 col-md-auto">
-              <button className="btn btn-primary w-100">Subscribe</button>
+              <button type="submit" className="btn btn-primary w-100">
+                Subscribe
+              </button>
             </div>
           </form>
         </div>

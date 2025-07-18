@@ -22,7 +22,6 @@ function Article() {
 
   return (
     <div className="article-page">
-      {/* Banner */}
       <div className="banner bg-primary text-white py-5">
         <div className="container text-center">
           <h1 className="display-4">{article?.title}</h1>
@@ -33,7 +32,6 @@ function Article() {
         </div>
       </div>
 
-      {/* Article Content */}
       <div className="container py-5">
         <div className="row justify-content-center">
           <div className="col-12 col-md-11 col-lg-9">
@@ -42,7 +40,6 @@ function Article() {
               <p style={{ lineHeight: "1.8" }}>{article?.body}</p>
             </div>
 
-            {/* Repeated Author Meta */}
             <div className="mb-5">
               <ArticleMeta
                 author={article?.author}
@@ -50,7 +47,6 @@ function Article() {
               />
             </div>
 
-            {/* Comments Section */}
             <div className="row justify-content-center">
               <div className="col-12 col-md-11 col-lg-10">
                 <div className="card shadow-sm border-0 p-3">

@@ -5,7 +5,7 @@ A full-stack blogging platform built using the MERN stack (MongoDB, Express.js, 
 ## 📸 Screenshots
 
 ### 🔐 Hero Page
-![Hero Page](./website-demo/Hero-Page.png)
+![Hero Page](./website-demo/Hero-Page.jpeg)
 
 ## ✨ Features
 
@@ -38,5 +38,5 @@ A full-stack blogging platform built using the MERN stack (MongoDB, Express.js, 
 **Site Live At** - https://journey-compass.netlify.app/
 
 ## PostMan File - 
-postman-routes.json file contains postman setup for verifying routes
+userRoutes.postman_collection.json file contains postman setup for verifying routes
 

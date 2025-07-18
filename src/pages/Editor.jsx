@@ -45,7 +45,6 @@ function Editor() {
                     <FormErrors />
                     <Form>
                       <fieldset disabled={isSubmitting}>
-                        {/* Title */}
                         <div className="mb-3">
                           <Field
                             name="title"
@@ -55,7 +54,6 @@ function Editor() {
                           />
                         </div>
 
-                        {/* Description */}
                         <div className="mb-3">
                           <Field
                             name="description"
@@ -65,7 +63,6 @@ function Editor() {
                           />
                         </div>
 
-                        {/* Body */}
                         <div className="mb-3">
                           <Field
                             name="body"
@@ -76,12 +73,10 @@ function Editor() {
                           />
                         </div>
 
-                        {/* Tags */}
                         <div className="mb-4">
                           <Field name="tagList" component={TagsInput} />
                         </div>
 
-                        {/* Submit */}
                         <div className="d-grid">
                           <button
                             className="btn btn-primary btn-lg"

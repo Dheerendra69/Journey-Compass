@@ -23,7 +23,6 @@ function Home() {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
 
       <section className="bg-dark hero-section text-white text-center py-5">
         <div className="container px-3 px-sm-4">
@@ -34,18 +33,15 @@ function Home() {
         </div>
       </section>
 
-      {/* Main Content Section */}
       <section className="container-fluid py-5">
         <div className="container">
           <div className="row gx-5 gy-4">
-            {/* Sidebar - Popular Tags */}
             <div className="col-12 col-lg-4 order-1 order-lg-2">
               <div className="card p-3 shadow-sm border-0">
                 <PopularTags />
               </div>
             </div>
 
-            {/* Articles - Article List */}
             <div className="col-12 col-lg-8 order-2 order-lg-1">
               <div className="mb-3">
                 <ul className="nav nav-pills">
