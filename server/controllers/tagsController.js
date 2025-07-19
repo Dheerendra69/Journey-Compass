@@ -4,7 +4,7 @@ const Article = require("../models/Article");
 const getTags = async (req, res) => {
   try {
     const tags = await Article.find().distinct("tagList").exec();
-    const limitedTags = tags.slice(0, 15); // Get only the first 15 tags
+    const limitedTags = tags.slice(0, 15); 
 
     res.status(200).json({
       tags: limitedTags,
