@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks";
+import "../css/ArticleMeta.css";
 
 function ArticleMeta({ author, createdAt }) {
   const { authUser } = useAuth();
@@ -19,11 +20,11 @@ function ArticleMeta({ author, createdAt }) {
       <div>
         <Link
           to={`/profile/${author?.username}`}
-          className="d-block text-decoration-none fw-bold text-dark"
+          className="d-block text-decoration-none fw-bold colored-text"
         >
           {author?.username}
         </Link>
-        <span className="text-muted small">
+        <span className="text-muted small colored-text">
           {new Date(createdAt).toDateString()}
         </span>
       </div>

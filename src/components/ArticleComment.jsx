@@ -18,7 +18,7 @@ function ArticleComment({ comment }) {
           <div className="d-flex align-items-center flex-wrap gap-2">
             <Link
               to={`/profile/${author.username}`}
-              className="text-decoration-none fw-medium"
+              className="text-decoration-none fw-medium colored-text"
             >
               @{author.username}
             </Link>

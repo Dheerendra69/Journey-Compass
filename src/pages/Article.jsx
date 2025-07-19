@@ -22,7 +22,7 @@ function Article() {
 
   return (
     <div className="article-page">
-      <div className="banner bg-primary text-white py-5">
+      <div className="banner bg-primary text-white py-5 hero-section">
         <div className="container text-center">
           <h1 className="display-4">{article?.title}</h1>
           <ArticleMeta

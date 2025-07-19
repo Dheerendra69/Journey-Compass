@@ -5,7 +5,7 @@ A full-stack blogging platform built using the MERN stack (MongoDB, Express.js, 
 ## 📸 Screenshots
 
 ### 🔐 Hero Page
-![Hero Page](./website-demo/Hero-Page.png)
+![Hero Page](./website-demo/Hero-Page.jpeg)
 
 ## ✨ Features
 

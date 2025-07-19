@@ -1,0 +1,9 @@
+
+.colored-text {
+  color: #006A71 !important;
+  text-decoration: none;
+}
+.colored-text:hover {
+  text-decoration: underline; /* optional */
+  color: #004f53 !important;   /* darker shade on hover (optional) */
+}

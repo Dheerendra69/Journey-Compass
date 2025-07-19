@@ -58,11 +58,11 @@ button[type="submit"] {
 }
 
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #006A71;
+  border-color: #006A71;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #004f53;
+  border-color: #004f53;
 }
