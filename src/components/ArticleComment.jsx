@@ -15,8 +15,11 @@ function ArticleComment({ comment }) {
 
       {id && (
         <div className="card-footer d-flex justify-content-between align-items-center flex-wrap">
-          <div className="d-flex align-items-center flex-wrap">
-            <Link to={`/profile/${author.username}`} className="text-decoration-none me-2 fw-medium">
+          <div className="d-flex align-items-center flex-wrap gap-2">
+            <Link
+              to={`/profile/${author.username}`}
+              className="text-decoration-none fw-medium"
+            >
               @{author.username}
             </Link>
             <span className="text-muted small">
