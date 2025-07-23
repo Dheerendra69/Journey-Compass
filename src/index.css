@@ -3,13 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
-
-}
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
 }
