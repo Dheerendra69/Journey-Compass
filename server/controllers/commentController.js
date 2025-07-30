@@ -64,6 +64,7 @@ const getCommentsFromArticle = async (req, res) => {
       ),
     });
   } else {
+
     return res.status(200).json({
       comments: await Promise.all(
         article.comments.map(async (commentId) => {

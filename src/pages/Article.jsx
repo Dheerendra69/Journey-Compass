@@ -7,11 +7,18 @@ import "../css/Article.css";
 function Article() {
   const [article, setArticle] = useState({});
   const { slug } = useParams();
+  const token = localStorage.getItem("jwtToken");
 
   const getArticleBySlug = async (slug) => {
     const { data } = await axios.get(
-      `https://blogging-website-x3hj.onrender.com/api/articles/${slug}`
+      `http://localhost:3000/api/articles/${slug}`,
+      {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      }
     );
+    console.log(data);
     setArticle(data.article);
   };
 
@@ -50,7 +57,7 @@ function Article() {
             <div className="row justify-content-center">
               <div className="col-12 col-md-11 col-lg-10">
                 <div className="card shadow-sm border-0 p-3">
-                  <ArticleComments />
+                  <ArticleComments slug={slug} />
                 </div>
               </div>
             </div>

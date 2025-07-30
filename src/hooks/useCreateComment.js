@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const createCommentApi = async (values) => {
   const { data } = await axios.post(
-    `https://blogging-website-x3hj.onrender.com/api/articles/${values.slug}/comments`,
+    `http://localhost:3000/api/articles/${values.slug}/comments`,
     { ...values.values }
   );
 
@@ -21,7 +21,7 @@ export default function useCreateComment() {
     onSuccess: () => {
       alert("New comment successfully created");
       queryClient.invalidateQueries({ queryKey: ["articleComments"] });
-      navigate("/");
+      navigate("/blogs");
     },
     onError: (err) => alert(err.message),
   });

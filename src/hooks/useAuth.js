@@ -2,7 +2,6 @@ import React from "react";
 import { proxy, useSnapshot, snapshot } from "valtio";
 import axios from "axios";
 import { isEmpty } from "lodash-es";
-//proxy object
 
 function getAuthUser() {
   const jwt = window.localStorage.getItem("jwtToken");

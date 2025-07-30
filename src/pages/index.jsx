@@ -3,4 +3,4 @@ export { default as Home } from "./Home";
 export { default as Settings } from "./Settings";
 export { default as Editor } from "./Editor";
 export { default as Article } from "./Article";
-export { default as Footer } from "./Footer";
+export { default as Footer } from "../components/Footer";

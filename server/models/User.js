@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
     match: [/\S+@\S+\.\S+/, "is valid"],
     index: true, //optimizing query performance
   },
+  image: {
+    type: String, 
+    default: "https://img.freepik.com/premium-vector/character-avatar-isolated_729149-194801.jpg?semt=ais_hybrid&w=740&q=80",  
+  },
 });
 
 userSchema.methods.generateAccessToken = function () {
@@ -43,6 +47,7 @@ userSchema.methods.toUserResponse = function () {
     username: this.username,
     email: this.email,
     token: this.generateAccessToken(),
+    image: this.image
   };
 };
 

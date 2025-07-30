@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { useAuth, useUserQuery } from "../hooks";
 import axios from "axios";
 import { useQueryClient } from "@tanstack/react-query";
@@ -7,6 +7,11 @@ import { useNavigate } from "react-router-dom";
 import "../css/Settings.css";
 
 function Settings() {
+  const [toast, setToast] = useState({
+    show: false,
+    message: "",
+    type: "success",
+  });
   const { logout } = useAuth();
   const { isCurrentUserLoading, currentUser, currentUserError } =
     useUserQuery();
@@ -15,12 +20,9 @@ function Settings() {
 
   async function onSubmit(values, { setErrors }) {
     try {
-      const { data } = await axios.put(
-        `https://blogging-website-x3hj.onrender.com/api/user`,
-        {
-          user: values,
-        }
-      );
+      const { data } = await axios.put(`http://localhost:3000/api/user`, {
+        user: values,
+      });
 
       const updatedUsername = data?.user?.username;
 
@@ -29,14 +31,23 @@ function Settings() {
       queryClient.invalidateQueries(`/profiles/${updatedUsername}`);
       queryClient.invalidateQueries(`/user`);
 
-      navigate(`/profile/${updatedUsername}`);
+      setToast({
+        show: true,
+        message: "Profile Updated Successfully",
+        type: "success",
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } catch (error) {
       const { status, data } = error.response;
       if (status === 422) {
         setErrors(data.errors);
       }
+      console.log(error);
     }
   }
+  console.log(currentUser);
 
   return (
     <div className="settings-page py-5">

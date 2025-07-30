@@ -28,15 +28,26 @@ const createArticle = async (req, res) => {
 };
 
 const feedArticles = async (req, res) => {
-  //in the req\\
-  Article.find({})
-    .then((articles) => {
-      res.json(articles); // Send JSON response with the articles
-    })
-    .catch((err) => {
-      console.error("Error fetching articles", err);
-      res.status(500).json({ error: "Error fetching articles" });
-    });
+
+  try {
+    const { tags, feed } = req.query;
+
+    const query = {};
+
+    if (tags) {
+      const tagArray = Array.isArray(tags) ? tags : [tags];
+      query.tagList = { $in: tagArray };
+    }
+
+    const articles = await Article.find(query).populate(
+      "author",
+      "username email image"
+    );
+    res.json(articles);
+  } catch (err) {
+    console.error("Error fetching filtered articles", err);
+    res.status(500).json({ error: "Failed to fetch articles" });
+  }
 };
 
 const getArticleWithSlug = async (req, res) => {
@@ -44,7 +55,11 @@ const getArticleWithSlug = async (req, res) => {
 
   const article = await Article.findOne({ slug }).exec();
 
+  console.log("inside get Article by slug");
+  const data = await article.toArticleResponse();
+  console.log(data);
   if (!article) {
+    console.log("Article Not there");
     return res.status(401).json({
       message: "Article Not Found",
     });

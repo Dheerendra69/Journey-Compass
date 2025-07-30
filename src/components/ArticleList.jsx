@@ -4,8 +4,14 @@ import { useArticlesQuery } from "../hooks";
 import ArticlePreview from "./ArticlePreview";
 import "../css/ArticleList.css";
 
-function ArticleList() {
-  const { articles } = useArticlesQuery();
+function ArticleList({ filters }) {
+  const { tag, feed } = filters;
+  const { isLoading, articles } = useArticlesQuery({
+    tag,
+    feed,
+  });
+
+  console.log(articles);
 
   if (isEmpty(articles)) {
     return (
@@ -14,7 +20,6 @@ function ArticleList() {
       </div>
     );
   }
-
   return (
     <div className="row gy-4">
       {articles.map((article) => (

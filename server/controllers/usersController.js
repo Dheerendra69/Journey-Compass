@@ -41,45 +41,58 @@ const userLogin = async (req, res) => {
     user: loginUser.toUserResponse(),
   });
 };
-
 const registerUser = async (req, res) => {
-  //logic to register the user
-
   const { user } = req.body;
 
-  // check if the data exists
+  // Validate required fields
   if (!user || !user.email || !user.password || !user.username) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const hashedPass = await bcrypt.hash(user.password, 10); //10 => salt rounds
-
-  const userObject = {
-    username: user.username,
-    password: hashedPass,
-    email: user.email,
-  };
-
-  const createdUser = await User.create(userObject);
-
-  //save to the database
-  //create model or schema
-  if (createdUser) {
-    res.status(201).json({
-      user: createdUser.toUserResponse(),
+  try {
+    // Check if user already exists by email or username
+    const existingUser = await User.findOne({
+      $or: [{ email: user.email }, { username: user.username }],
     });
-  } else {
-    res.status(422).json({
-      errors: {
-        body: "Unable to register a user",
-      },
-    });
+
+    if (existingUser) {
+      return res.status(409).json({
+        message: "User with this email or username already exists",
+      });
+    }
+
+    // Hash password
+    const hashedPass = await bcrypt.hash(user.password, 10);
+
+    // Create user object
+    const userObject = {
+      username: user.username,
+      password: hashedPass,
+      email: user.email,
+    };
+
+    // Create user in DB
+    const createdUser = await User.create(userObject);
+
+    if (createdUser) {
+      return res.status(201).json({
+        user: createdUser.toUserResponse(),
+      });
+    } else {
+      return res.status(422).json({
+        errors: {
+          body: "Unable to register user",
+        },
+      });
+    }
+  } catch (error) {
+    console.error("Register Error:", error);
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
 const updateUser = async (req, res) => {
   const { user } = req.body;
-
   if (!user) {
     return res.status(400).json({ message: "Required a User object" });
   }
@@ -110,6 +123,7 @@ const updateUser = async (req, res) => {
   }
 
   await target.save();
+  console.log("profile updated");
   return res.status(200).json({
     user: target.toUserResponse(),
   });

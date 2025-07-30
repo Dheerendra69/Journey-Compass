@@ -2,10 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
 const getArticleComments = async (slug) => {
+  const token = localStorage.getItem("jwtToken");
+
   const { data } = await axios.get(
-    `https://blogging-website-x3hj.onrender.com/api/articles/${slug}/comments`
+    `http://localhost:3000/api/articles/${slug}/comments`,
+    {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    }
   );
 
   return data;

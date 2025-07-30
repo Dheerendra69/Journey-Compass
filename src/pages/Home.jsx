@@ -12,10 +12,15 @@ function Home() {
     ...initialFilters,
     feed: isAuth,
   });
+  const [selectedTags, setSelectedTags] = React.useState([]);
 
   React.useEffect(() => {
-    setFilters({ ...initialFilters, feed: isAuth });
-  }, [isAuth]);
+    setFilters({
+      ...initialFilters,
+      feed: false,
+      tag: selectedTags,
+    });
+  }, [selectedTags]);
 
   function onFeedClick() {
     setFilters({ ...initialFilters, feed: true });
@@ -23,7 +28,6 @@ function Home() {
 
   return (
     <div className="home-page">
-
       <section className="bg-dark hero-section text-white text-center py-5">
         <div className="container px-3 px-sm-4">
           <h1 className="display-4 display-md-2 logo-font mb-3 typing">
@@ -38,7 +42,10 @@ function Home() {
           <div className="row gx-5 gy-4">
             <div className="col-12 col-lg-4 order-1 order-lg-2">
               <div className="card p-3 shadow-sm border-0">
-                <PopularTags />
+                <PopularTags
+                  selectedTags={selectedTags}
+                  setSelectedTags={setSelectedTags}
+                />
               </div>
             </div>
 
@@ -60,7 +67,7 @@ function Home() {
                 </ul>
               </div>
               <div className="card p-3 shadow-sm border-0">
-                <ArticleList />
+                <ArticleList filters={filters} />
               </div>
             </div>
           </div>

@@ -19,14 +19,11 @@ export default function ProfilePage() {
 
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(
-          "https://blogging-website-x3hj.onrender.com/api/profile",
-          {
-            headers: {
-              Authorization: `Token ${token}`,
-            },
-          }
-        );
+        const res = await axios.get("http://localhost:3000/api/profile", {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        });
 
         setUser(res.data.user);
         setArticles(res.data.articles);

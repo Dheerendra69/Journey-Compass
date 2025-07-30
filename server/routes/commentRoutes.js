@@ -1,19 +1,26 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
 
-const commentController = require('../controllers/commentController');
-const verifyJWT = require('../middleware/verifyJWT');
-const verifyJWTOptional = require('../middleware/verifyJWTOptional');
+const commentController = require("../controllers/commentController");
+const verifyJWT = require("../middleware/verifyJWT");
 
+router.post(
+  "/:slug/comments",
+  verifyJWT,
+  commentController.addCommentsToArticle
+);
 
-router.post('/:slug/comments', verifyJWT, commentController.addCommentsToArticle);
+router.get(
+  "/:slug/comments",
 
-router.get('/:slug/comments', verifyJWTOptional, commentController.getCommentsFromArticle);
+  commentController.getCommentsFromArticle
+);
 
+router.delete(
+  "/:slug/comments/:id",
 
-router.delete('/:slug/comments/:id', verifyJWT, commentController.deleteComment);
-
-
+  commentController.deleteComment
+);
 
 module.exports = router;

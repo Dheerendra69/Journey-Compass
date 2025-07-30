@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import ArticleComment from "./ArticleComment";
 import ArticleCommentForm from "./ArticleCommentForm";
 
-function ArticleComments() {
+function ArticleComments({ slug }) {
   const { isAuth } = useAuth();
+  const articleSlug = slug;
 
   const { isArticleCommentsLoading, articleComments, articleCommentsError } =
     useArticleCommentsQuery();
@@ -51,7 +52,7 @@ function ArticleComments() {
           )}
 
           {articleComments?.comments?.map((comment) => (
-            <ArticleComment key={comment.id} comment={comment} />
+            <ArticleComment key={comment.id} comment={comment} articleSlug={articleSlug} />
           ))}
         </div>
       </div>
