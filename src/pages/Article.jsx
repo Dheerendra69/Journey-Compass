@@ -11,7 +11,7 @@ function Article() {
 
   const getArticleBySlug = async (slug) => {
     const { data } = await axios.get(
-      `http://localhost:3000/api/articles/${slug}`,
+      `https://blogging-website-x3hj.onrender.com/api/articles/${slug}`,
       {
         headers: {
           Authorization: `Token ${token}`,

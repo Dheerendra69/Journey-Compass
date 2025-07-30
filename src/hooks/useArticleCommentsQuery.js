@@ -6,7 +6,7 @@ const getArticleComments = async (slug) => {
   const token = localStorage.getItem("jwtToken");
 
   const { data } = await axios.get(
-    `http://localhost:3000/api/articles/${slug}/comments`,
+    `https://blogging-website-x3hj.onrender.com/api/articles/${slug}/comments`,
     {
       headers: {
         Authorization: `Token ${token}`,

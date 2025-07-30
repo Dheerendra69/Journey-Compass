@@ -39,7 +39,9 @@ function Auth() {
   const onSubmit = async (values, actions) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:3000/api/users${isRegister ? "" : "/login"}`,
+        `https://blogging-website-x3hj.onrender.com/api/users${
+          isRegister ? "" : "/login"
+        }`,
         { user: values }
       );
       login(data.user);

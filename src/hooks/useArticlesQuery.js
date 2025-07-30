@@ -15,7 +15,7 @@ const getAllArticles = async ({ tag = [], feed = false }) => {
 
   try {
     const { data } = await axios.get(
-      "http://localhost:3000/api/articles/feed",
+      "https://blogging-website-x3hj.onrender.com/api/articles/feed",
       {
         params,
         headers: {
@@ -24,7 +24,7 @@ const getAllArticles = async ({ tag = [], feed = false }) => {
       }
     );
 
-    return data; 
+    return data;
   } catch (error) {
     console.log("inside getAllArticles error:");
     console.error(error?.response?.data || error.message);
