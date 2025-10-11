@@ -16,7 +16,7 @@ import ProfilePage from "./pages/ProfilePage";
 import { warmUpBackend } from "./utils/coldStarts";
 
 function App() {
-  React.useEffect(() => {
+  useEffect(() => {
     warmUpBackend(); 
   }, []);
   
