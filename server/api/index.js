@@ -14,9 +14,14 @@ connectDB();
 app.use(cors(corsOptions));
 app.use(express.json()); //middleware to parse json
 
+
+// Waking-up the backend
+app.get("/api/wake-up", (req, res) => {
+  res.status(200).send("Backend awake and running!");
+});
+
 // user routes for /api/users and /api/user
 app.use("/api", require("../routes/userRoutes"));
-
 
 // article routes 
 
