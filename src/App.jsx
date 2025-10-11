@@ -13,8 +13,14 @@ import axios from "axios";
 import About from "./pages/About";
 import LandingPage from "./pages/LandingPage";
 import ProfilePage from "./pages/ProfilePage";
+import { warmUpBackend } from "./utils/coldStarts";
 
 function App() {
+  
+  React.useEffect(() => {
+    warmUpBackend(); 
+  }, []);
+  
   function setAuthorizationToken() {
     const jwt = window.localStorage.getItem("jwtToken");
 
