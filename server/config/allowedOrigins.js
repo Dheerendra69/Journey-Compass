@@ -1,9 +1,9 @@
 
 const allowedOrigins = [
     'http://localhost:5173',
-    'https://journey-compass.netlify.app',
     'http://localhost:5174',
-
+    'https://journey-compass.netlify.app',
+    'https://event-bookin.netlify.app',
 ];
 
 module.exports = allowedOrigins;
