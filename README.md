@@ -25,6 +25,7 @@ A full-stack blogging platform built using the MERN stack (MongoDB, Express.js, 
 - React
 - Axios
 - React Router DOM
+- React Tan Stack Query
 
 **Backend:**
 - Node.js
@@ -39,4 +40,3 @@ A full-stack blogging platform built using the MERN stack (MongoDB, Express.js, 
 
 ## PostMan File - 
 postman-routes.json file contains postman setup for verifying routes
-
