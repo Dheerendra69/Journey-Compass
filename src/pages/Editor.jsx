@@ -30,7 +30,6 @@ function Editor() {
     try {
       createArticle({ values });
       handleAction();
-      console.log("success");
       queryClient.invalidateQueries(["/articles"]);
       setTimeout(() => {
         setToast({

@@ -18,7 +18,6 @@ function Article() {
         },
       }
     );
-    console.log(data);
     setArticle(data.article);
   };
 

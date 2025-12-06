@@ -123,7 +123,6 @@ const updateUser = async (req, res) => {
   }
 
   await target.save();
-  console.log("profile updated");
   return res.status(200).json({
     user: target.toUserResponse(),
   });

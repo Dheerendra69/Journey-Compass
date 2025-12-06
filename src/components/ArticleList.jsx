@@ -11,8 +11,6 @@ function ArticleList({ filters }) {
     feed,
   });
 
-  console.log(articles);
-
   if (isEmpty(articles)) {
     return (
       <div className="text-center py-4 text-muted">

@@ -55,11 +55,8 @@ const getArticleWithSlug = async (req, res) => {
 
   const article = await Article.findOne({ slug }).exec();
 
-  console.log("inside get Article by slug");
   const data = await article.toArticleResponse();
-  console.log(data);
   if (!article) {
-    console.log("Article Not there");
     return res.status(401).json({
       message: "Article Not Found",
     });

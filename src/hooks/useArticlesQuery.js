@@ -26,7 +26,6 @@ const getAllArticles = async ({ tag = [], feed = false }) => {
 
     return data;
   } catch (error) {
-    console.log("inside getAllArticles error:");
     console.error(error?.response?.data || error.message);
     throw error;
   }

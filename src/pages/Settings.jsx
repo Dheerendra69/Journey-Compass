@@ -50,7 +50,6 @@ function Settings() {
       console.log(error);
     }
   }
-  console.log(currentUser);
 
   return (
     <div className="settings-page py-5">
