@@ -70,7 +70,7 @@ const getCommentsFromArticle = async (req, res) => {
         article.comments.map(async (commentId) => {
           const commentObj = await Comment.findById(commentId).exec();
 
-          const temp = commentObj.toCommentResponse(false);
+          const temp = commentObj?.toCommentResponse(false);
           return temp;
         })
       ),
