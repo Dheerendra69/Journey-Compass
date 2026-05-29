@@ -60,11 +60,10 @@ const getCommentsFromArticle = async (req, res) => {
         article.comments.map(async (commentId) => {
           const commentObj = await Comment.findById(commentId).exec();
           return await commentObj.toCommentResponse(loginUser);
-        })
+        }),
       ),
     });
   } else {
-
     return res.status(200).json({
       comments: await Promise.all(
         article.comments.map(async (commentId) => {
@@ -72,7 +71,7 @@ const getCommentsFromArticle = async (req, res) => {
 
           const temp = commentObj?.toCommentResponse(false);
           return temp;
-        })
+        }),
       ),
     });
   }

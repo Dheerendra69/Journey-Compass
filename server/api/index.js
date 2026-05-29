@@ -5,15 +5,13 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const connectDB = require("../config/dbConnect");
 const mongoose = require("mongoose");
-var cors = require('cors')
-const corsOptions = require('../config/corsOptions');
-
+var cors = require("cors");
+const corsOptions = require("../config/corsOptions");
 
 connectDB();
 //user routes => /api/users and /api/user
 app.use(cors(corsOptions));
 app.use(express.json()); //middleware to parse json
-
 
 // Waking-up the backend
 app.get("/api/wake-up", (req, res) => {
@@ -23,18 +21,14 @@ app.get("/api/wake-up", (req, res) => {
 // user routes for /api/users and /api/user
 app.use("/api", require("../routes/userRoutes"));
 
-// article routes 
-
+// article routes
 app.use("/api/articles", require("../routes/articleRoutes"));
 
 //tag routes
-
 app.use("/api/tags", require("../routes/tagRoutes"));
 
 //comment routes
-
 app.use("/api/articles", require("../routes/commentRoutes"));
-
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
@@ -44,6 +38,6 @@ mongoose.connection.once("open", () => {
   });
 });
 
-mongoose.connection.on('error', (err) => {
-    console.log('Error while connection to MongoDB: ',err)
+mongoose.connection.on("error", (err) => {
+  console.log("Error while connection to MongoDB: ", err);
 });

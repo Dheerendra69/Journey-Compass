@@ -28,7 +28,6 @@ const createArticle = async (req, res) => {
 };
 
 const feedArticles = async (req, res) => {
-
   try {
     const { tags, feed } = req.query;
 
@@ -41,7 +40,7 @@ const feedArticles = async (req, res) => {
 
     const articles = await Article.find(query).populate(
       "author",
-      "username email image"
+      "username email image",
     );
     res.json(articles);
   } catch (err) {

@@ -7,7 +7,7 @@ const verifyJWT = require("../middleware/verifyJWT");
 ///api/articles
 router.post("/", verifyJWT, articlesController.createArticle);
 
-router.get("/feed",  articlesController.feedArticles);
+router.get("/feed", articlesController.feedArticles);
 
 router.get("/:slug", articlesController.getArticleWithSlug);
 

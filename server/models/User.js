@@ -22,8 +22,9 @@ const userSchema = new mongoose.Schema({
     index: true, //optimizing query performance
   },
   image: {
-    type: String, 
-    default: "https://img.freepik.com/premium-vector/character-avatar-isolated_729149-194801.jpg?semt=ais_hybrid&w=740&q=80",  
+    type: String,
+    default:
+      "https://img.freepik.com/premium-vector/character-avatar-isolated_729149-194801.jpg?semt=ais_hybrid&w=740&q=80",
   },
 });
 
@@ -37,7 +38,7 @@ userSchema.methods.generateAccessToken = function () {
       },
     },
     process.env.ACCESS_TOKEN_SECRET,
-    { expiresIn: "1d" }
+    { expiresIn: "1d" },
   );
   return accessToken;
 };
@@ -47,7 +48,7 @@ userSchema.methods.toUserResponse = function () {
     username: this.username,
     email: this.email,
     token: this.generateAccessToken(),
-    image: this.image
+    image: this.image,
   };
 };
 

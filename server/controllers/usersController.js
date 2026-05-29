@@ -144,7 +144,7 @@ const profileController = async (req, res) => {
 
     // Get articles written by user (optional)
     const articles = await Article.find({ author: user.username }).select(
-      "title slug"
+      "title slug",
     );
 
     res.json({ user, articles });

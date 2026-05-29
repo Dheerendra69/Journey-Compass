@@ -8,19 +8,17 @@ const verifyJWT = require("../middleware/verifyJWT");
 router.post(
   "/:slug/comments",
   verifyJWT,
-  commentController.addCommentsToArticle
+  commentController.addCommentsToArticle,
 );
 
 router.get(
   "/:slug/comments",
-
-  commentController.getCommentsFromArticle
+  commentController.getCommentsFromArticle,
 );
 
 router.delete(
   "/:slug/comments/:id",
-
-  commentController.deleteComment
+  commentController.deleteComment,
 );
 
 module.exports = router;

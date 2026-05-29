@@ -16,7 +16,7 @@ function ArticleComment({ comment, articleSlug }) {
           headers: {
             Authorization: `Token ${localStorage.getItem("jwtToken")}`,
           },
-        }
+        },
       );
     } catch (err) {
       console.error("Failed to delete comment:", err);

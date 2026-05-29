@@ -46,20 +46,18 @@ const articleSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 articleSchema.plugin(uniqueValidator);
 
-
 //middleware to run before saving the article
 
-articleSchema.pre('save', function(next){
+articleSchema.pre("save", function (next) {
+  this.slug = slugify(this.title, { lower: true, replacement: "-" });
 
-    this.slug = slugify(this.title, {lower:true, replacement:'-'});
-
-    next();
-} )
+  next();
+});
 
 //user is the logged in user
 articleSchema.methods.toArticleResponse = async function (user) {
@@ -79,16 +77,14 @@ articleSchema.methods.toArticleResponse = async function (user) {
 };
 
 articleSchema.methods.addComment = async function (commentId) {
-
-  if(this.comments.indexOf(commentId) === -1){
+  if (this.comments.indexOf(commentId) === -1) {
     this.comments.push(commentId);
   }
   return this.save();
 };
 
-
 articleSchema.methods.removeComment = async function (commentId) {
-  if(this.comments.indexOf(commentId) !== -1){
+  if (this.comments.indexOf(commentId) !== -1) {
     this.comments.remove(commentId);
   }
   return this.save();
