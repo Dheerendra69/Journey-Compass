@@ -11,7 +11,7 @@ function ArticleComment({ comment, articleSlug }) {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `https://your-api.com/api/articles/${articleSlug}/comments/${id}`,
+        `https://blogging-website-x3hj.onrender.com/api/articles/${articleSlug}/comments/${id}`,
         {
           headers: {
             Authorization: `Token ${localStorage.getItem("jwtToken")}`,
