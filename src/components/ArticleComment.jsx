@@ -42,14 +42,14 @@ function ArticleComment({ comment, articleSlug }) {
               {new Date(createdAt).toDateString()}
             </span>
           </div>
-          {canDelete && (
+          /* {canDelete && (
             <button
               className="btn btn-sm btn-outline-danger mt-2 mt-md-0"
               onClick={handleDelete}
             >
               Delete
             </button>
-          )}
+          )} */
         </div>
       )}
     </div>
