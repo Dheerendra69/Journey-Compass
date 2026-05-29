@@ -3,6 +3,7 @@ import { useAuth } from "../hooks";
 import { NavLink } from "react-router-dom";
 import styles from "../css/Navbar.module.css";
 import { motion } from "framer-motion";
+import { toTitleCase } from "../utils/generic";
 
 function Navbar() {
   const { isAuth, authUser } = useAuth();
@@ -57,7 +58,7 @@ function Navbar() {
               </li>
               <li>
                 <NavLink className={styles.link} to={`/@${authUser?.username}`}>
-                  Hi {authUser?.username}
+                  Hi {toTitleCase(authUser?.username || 'User')}
                 </NavLink>
               </li>
             </>
