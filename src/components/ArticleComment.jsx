@@ -8,13 +8,19 @@ function ArticleComment({ comment, articleSlug }) {
 
   const canDelete = author?.username === authUser?.username;
 
+  const token = localStorage.getItem("jwtToken");
+
   const handleDelete = async () => {
+    const parsedJwt = JSON.parse(atob(token));
+    if (Date.now() > parsedJwt.expiry) {
+      console.log("Token expired");
+    }
     try {
       await axios.delete(
         `https://blogging-website-x3hj.onrender.com/api/articles/${articleSlug}/comments/${id}`,
         {
           headers: {
-            Authorization: `Token ${localStorage.getItem("jwtToken")}`,
+            Authorization: `Token ${parsedJwt.token}`,
           },
         },
       );
@@ -42,14 +48,14 @@ function ArticleComment({ comment, articleSlug }) {
               {new Date(createdAt).toDateString()}
             </span>
           </div>
-          {/* {canDelete && (
+          {canDelete && (
             <button
               className="btn btn-sm btn-outline-danger mt-2 mt-md-0"
               onClick={handleDelete}
             >
               Delete
             </button>
-          )} */}
+          )}
         </div>
       )}
     </div>
