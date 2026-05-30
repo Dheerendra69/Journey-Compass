@@ -18,6 +18,7 @@ router.get(
 
 router.delete(
   "/:slug/comments/:id",
+  verifyJWT,
   commentController.deleteComment,
 );
 

@@ -24,6 +24,8 @@ function ArticleComment({ comment, articleSlug }) {
           },
         },
       );
+      alert("Comment deleted successfully!!!");
+      window.location.reload();
     } catch (err) {
       console.error("Failed to delete comment:", err);
     }
