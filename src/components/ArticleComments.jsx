@@ -23,7 +23,7 @@ function ArticleComments({ slug }) {
             to="/register"
             className="text-primary text-decoration-none ms-2"
           >
-            Sign up
+            Sign up &nbsp;
           </Link>
           to add a comment on this article.
         </p>
