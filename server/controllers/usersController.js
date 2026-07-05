@@ -2,6 +2,8 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const Article = require("../models/Article");
 const jwt = require("jsonwebtoken");
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const getCurrentUser = async (req, res) => {
   const email = req.userEmail;
@@ -154,9 +156,61 @@ const profileController = async (req, res) => {
   }
 };
 
+const googleLogin = async (req, res) => {
+  try {
+
+    console.log("inside Google Login: ");
+    
+    const { token } = req.body;
+
+    if (!token) {
+      return res.status(400).json({
+        message: "Google token is required",
+      });
+    }
+
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+
+    const { email, name, picture } = payload;
+
+    console.log("payload: ", payload);
+
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      const hashedPassword = await bcrypt.hash(
+        process.env.DEFAULT_PASSWORD,
+        10
+      );
+
+      user = await User.create({
+        username: name.replace(/\s+/g, "").toLowerCase(),
+        email,
+        password: hashedPassword,
+        image: picture,
+      });
+    }
+
+    return res.status(200).json({
+      user: user.toUserResponse(),
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: "Invalid Google token",
+    });
+  }
+};
+
 module.exports = {
   registerUser,
   userLogin,
+  googleLogin,
   getCurrentUser,
   updateUser,
   profileController,

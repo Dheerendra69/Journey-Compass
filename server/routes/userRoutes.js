@@ -19,4 +19,7 @@ router.put("/user", verifyJWT, userController.updateUser);
 // get user details
 router.get("/profile", userController.profileController);
 
+// google login
+router.post("/user/google", userController.googleLogin);
+
 module.exports = router;

@@ -4,6 +4,7 @@ import { Link, useMatch, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../hooks";
 import ToastMessage from "../components/ToastMessage";
+import { GoogleLogin } from "@react-oauth/google";
 
 const validatePassword = (password) => {
   const errors = [];
@@ -42,7 +43,7 @@ function Auth() {
         `https://blogging-website-x3hj.onrender.com/api/users${
           isRegister ? "" : "/login"
         }`,
-        { user: values }
+        { user: values },
       );
       login(data.user);
       setToast({
@@ -82,6 +83,46 @@ function Auth() {
           message: errMsg,
           type: "danger",
         });
+      }, 3000);
+    }
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/google`,
+        {
+          token: credentialResponse.credential,
+        },
+      );
+
+      console.log("data: ", data);
+
+      login(data.user);
+
+      setToast({
+        show: true,
+        message: "✅ Login successful!",
+        type: "success",
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+
+      setToast({
+        show: true,
+        message: "Google login failed.",
+        type: "danger",
+      });
+
+      setTimeout(() => {
+        setToast((prev) => ({
+          ...prev,
+          show: false,
+        }));
       }, 3000);
     }
   };
@@ -141,6 +182,12 @@ function Auth() {
                     <button type="submit" className="btn btn-primary w-100">
                       Sign {isRegister ? "up" : "in"}
                     </button>
+                  </div>
+                  <div className="flex justify-center">
+                    <GoogleLogin
+                      onSuccess={handleGoogleSuccess}
+                      onError={() => console.log("Login Failed")}
+                    />
                   </div>
                 </Form>
               )}

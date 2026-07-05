@@ -14,13 +14,17 @@ const state = proxy({
   authUser: getAuthUser(),
 });
 
+if (state.authUser?.token) {
+  axios.defaults.headers.Authorization = `Token ${state.authUser.token}`;
+}
+
 const isAuth = snapshot(state);
 const actions = {
   login: (user) => {
     state.authUser = user;
     window.localStorage.setItem(
       "jwtToken",
-      btoa(JSON.stringify(state.authUser))
+      btoa(JSON.stringify(state.authUser)),
     );
 
     axios.defaults.headers.Authorization = `Token ${state.authUser.token}`;
