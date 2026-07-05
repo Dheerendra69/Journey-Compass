@@ -158,8 +158,6 @@ const profileController = async (req, res) => {
 
 const googleLogin = async (req, res) => {
   try {
-
-    console.log("inside Google Login: ");
     
     const { token } = req.body;
 
@@ -178,7 +176,6 @@ const googleLogin = async (req, res) => {
 
     const { email, name, picture } = payload;
 
-    console.log("payload: ", payload);
 
     let user = await User.findOne({ email });
 
@@ -189,7 +186,7 @@ const googleLogin = async (req, res) => {
       );
 
       user = await User.create({
-        username: name.replace(/\s+/g, "").toLowerCase(),
+        username: name,
         email,
         password: hashedPassword,
         image: picture,

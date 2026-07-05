@@ -130,17 +130,25 @@ export default function LandingPage() {
           <h2 className="text-center mb-4" data-aos="zoom-in">
             Recent Blogs
           </h2>
+
           <div className="row">
             <div className="col-12 col-md-4 mb-4" data-aos="flip-left">
               <div className="card h-100 shadow-sm">
                 <div className="card-body d-flex flex-column justify-content-between">
                   <div>
-                    <h5 className="card-title">The Future of AI</h5>
-                    <p className="card-text">
-                      Explore how AI is transforming the world.
+                    <h5 className="card-title">
+                      The Wonders of Amazon Rainforest
+                    </h5>
+                    <p className="card-text mb-4">
+                      The Amazon Rainforest, often called the lungs of the
+                      Earth, is home...
                     </p>
                   </div>
-                  <a href="/blogs" className="btn btn-outline-primary mt-auto">
+
+                  <a
+                    href="/article/the-wonders-of-amazon-rainforest"
+                    className="btn btn-outline-primary mt-auto"
+                  >
                     Read More
                   </a>
                 </div>
@@ -155,12 +163,19 @@ export default function LandingPage() {
               <div className="card h-100 shadow-sm">
                 <div className="card-body d-flex flex-column justify-content-between">
                   <div>
-                    <h5 className="card-title">Productivity Hacks</h5>
-                    <p className="card-text">
-                      Learn tips to improve your workflow.
+                    <h5 className="card-title">
+                      The Impact of Coral Bleaching
+                    </h5>
+                    <p className="card-text mb-4">
+                      Coral bleaching is a phenomenon where coral reefs lose
+                      their vibrant...
                     </p>
                   </div>
-                  <a href="/blogs" className="btn btn-outline-primary mt-auto">
+
+                  <a
+                    href="/article/the-impact-of-coral-bleaching"
+                    className="btn btn-outline-primary mt-auto"
+                  >
                     Read More
                   </a>
                 </div>
@@ -175,12 +190,19 @@ export default function LandingPage() {
               <div className="card h-100 shadow-sm">
                 <div className="card-body d-flex flex-column justify-content-between">
                   <div>
-                    <h5 className="card-title">Travel Diaries</h5>
-                    <p className="card-text">
-                      Discover beautiful places around the globe.
+                    <h5 className="card-title">
+                      The Rise of Artificial Intelligence
+                    </h5>
+                    <p className="card-text mb-4">
+                      Artificial Intelligence (AI) is transforming the way
+                      people live, work...
                     </p>
                   </div>
-                  <a href="/blogs" className="btn btn-outline-primary mt-auto">
+
+                  <a
+                    href="/article/the-rise-of-artificial-intelligence-in-everyday-life"
+                    className="btn btn-outline-primary mt-auto"
+                  >
                     Read More
                   </a>
                 </div>
