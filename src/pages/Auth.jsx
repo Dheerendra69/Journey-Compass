@@ -183,7 +183,7 @@ function Auth() {
                       Sign {isRegister ? "up" : "in"}
                     </button>
                   </div>
-                  <div className="flex justify-center">
+                  <div className="d-flex justify-content-center">
                     <GoogleLogin
                       onSuccess={handleGoogleSuccess}
                       onError={() => console.log("Login Failed")}
