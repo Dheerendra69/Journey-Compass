@@ -68,6 +68,8 @@ function Auth() {
         errMsg = "Email or username already in use";
       } else if (message === "All fields are required") {
         errMsg = "Please fill in all fields";
+      } else if (message === "User Not Found") {
+        errMsg = message;
       } else {
         errMsg = "Something went wrong. Please try again later.";
       }
